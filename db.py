@@ -28,10 +28,21 @@ conf = {
     'TIME_ZONE': 'Asia/Jakarta'
 }
 
-settings.configure(**conf)
-apps.populate(settings.INSTALLED_APPS)
 
-from models import *
+def connect_to_db():
+    settings.configure(**conf)
+    apps.populate(settings.INSTALLED_APPS)
 
-print(City.objects.all())
-print(District.objects.all())
+
+if __name__ == '__main__':
+
+    connect_to_db()
+
+    from models import *
+
+    disctricts = District.objects.filter(city__city_name='Jakarta Pusat')
+
+    print([d.district_name for d in disctricts])
+    print(disctricts[0].city.city_name)
+
+    print(Pollutant.objects.filter(district__city__city_name='Jakarta Timur'))
