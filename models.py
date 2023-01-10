@@ -13,6 +13,9 @@ class Timestamp(models.Model):
     def __repr__(self):
         return str({'time_id': self.time_id, 'timestamp': self.timestamp})
 
+    def __str__(self):
+        return str({'time_id': self.time_id, 'timestamp': self.timestamp})
+
 
 class City(models.Model):
     city_id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -43,12 +46,12 @@ class Pollutant(models.Model):
     pollutant_id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     timestamp = models.ForeignKey(Timestamp, on_delete=models.CASCADE)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
-    NO2 = models.FloatField()
-    CO = models.FloatField()
-    O3 = models.FloatField()
-    SO2 = models.FloatField()
-    PM10 = models.FloatField()
-    PM25 = models.FloatField()
+    no2 = models.FloatField()
+    co = models.FloatField()
+    o3 = models.FloatField()
+    so2 = models.FloatField()
+    pm10 = models.FloatField()
+    pm25 = models.FloatField()
 
     class Meta:
         db_table = 'pollutants'
@@ -58,22 +61,22 @@ class Pollutant(models.Model):
         return str({
             'timestamp': self.timestamp,
             'district': self.district,
-            'NO2': self.NO2,
-            'CO': self.CO,
-            'O3': self.O3,
-            'SO2': self.SO2,
-            'PM10': self.PM10,
-            'PM25': self.PM25,
+            'no2': self.no2,
+            'co': self.co,
+            'o3': self.o3,
+            'so2': self.so2,
+            'pm10': self.pm10,
+            'pm25': self.pm25,
         })
 
     def __str__(self):
         return str({
             'timestamp': self.timestamp,
             'district': self.district,
-            'NO2': self.NO2,
-            'CO': self.CO,
-            'O3': self.O3,
-            'SO2': self.SO2,
-            'PM10': self.PM10,
-            'PM25': self.PM25,
+            'no2': self.no2,
+            'co': self.co,
+            'o3': self.o3,
+            'so2': self.so2,
+            'pm10': self.pm10,
+            'pm25': self.pm25,
         })

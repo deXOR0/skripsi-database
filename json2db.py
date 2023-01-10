@@ -44,12 +44,12 @@ def create_pollutant(timestamp, district, pollutants):
     pollutant = Pollutant(
         timestamp=timestamp,
         district=district,
-        NO2=pollutants['NO2'],
-        CO=pollutants['CO'],
-        O3=pollutants['O3'],
-        SO2=pollutants['SO2'],
-        PM10=pollutants['PM10'],
-        PM25=pollutants['PM25'],
+        no2=pollutants['NO2'],
+        co=pollutants['CO'],
+        o3=pollutants['O3'],
+        so2=pollutants['SO2'],
+        pm10=pollutants['PM10'],
+        pm25=pollutants['PM25'],
     )
 
     pollutant.save()
